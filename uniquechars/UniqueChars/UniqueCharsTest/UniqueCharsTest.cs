@@ -33,6 +33,8 @@ namespace UniqueCharsTest
             var uniquechars = new UniqueCharacter();
             var list = new List<string> { "a", "r", "e" };
             Assert.AreEqual(list, uniquechars.UniqueCharacters("address"));
+            list = new List<string> { "n", "g", "r", "m" };
+            Assert.AreEqual(list, uniquechars.UniqueCharacters("anagram"));
         }
     }
 }
