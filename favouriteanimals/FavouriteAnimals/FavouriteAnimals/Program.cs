@@ -42,7 +42,6 @@ namespace FavouriteAnimals
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-
                     if (animalList.Contains(list[i]))
                     {
                         Console.WriteLine("{0} is already in the list", list[i]);
