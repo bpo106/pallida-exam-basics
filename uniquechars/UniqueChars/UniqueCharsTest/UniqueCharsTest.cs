@@ -14,27 +14,24 @@ namespace UniqueCharsTest
         [Test]
         public void TestNoUniqueChars ()
         {
-            var uniquechars = new UniqueCharacter();
             var list = new List<string>();
-            Assert.AreEqual(list, uniquechars.UniqueCharacters("meme"));
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("meme"));
         }
 
         [Test]
         public void TestAllUniqueChars()
         {
-            var uniquechars = new UniqueCharacter();
             var list = new List<string>{ "s", "a", "l", "t" };
-            Assert.AreEqual(list, uniquechars.UniqueCharacters("salt"));
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("salt"));
         }
 
         [Test]
         public void TestSomeUniqueChars()
         {
-            var uniquechars = new UniqueCharacter();
             var list = new List<string> { "a", "r", "e" };
-            Assert.AreEqual(list, uniquechars.UniqueCharacters("address"));
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("address"));
             list = new List<string> { "n", "g", "r", "m" };
-            Assert.AreEqual(list, uniquechars.UniqueCharacters("anagram"));
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("anagram"));
         }
     }
 }

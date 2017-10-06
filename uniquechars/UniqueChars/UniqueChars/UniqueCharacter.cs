@@ -7,14 +7,19 @@ namespace UniqueChars
     {
         public static void Main(string[] args)
         {
-            // Create a method called `UniqueCharacters` that takes a string as parameter
-            // and returns a list with the unique letters of the given string
-            // Create basic unit tests for it with at least 3 different test cases
-            // Print the characters from that list in the following format:
-            // "n", "g", "r", "m"
+            string word = Console.ReadLine();
+            if (UniqueCharacters(word).Count == 0)
+            {
+                Console.WriteLine("No unique characters");
+            }
+            else
+            {
+                Console.WriteLine("\"{0}\"", String.Join("\", \"", UniqueCharacters(word)));
+            }
+            Console.ReadLine();
         }
 
-        public List<string> UniqueCharacters (string word)
+        public static List<string> UniqueCharacters (string word)
         {
             var list = new List<string>();
 
