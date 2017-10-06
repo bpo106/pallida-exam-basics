@@ -23,6 +23,8 @@ namespace UniqueCharsTest
         {
             var list = new List<string>{ "s", "a", "l", "t" };
             Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("salt"));
+            list = new List<string>{ "a" };
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("a"));
         }
 
         [Test]
@@ -32,6 +34,15 @@ namespace UniqueCharsTest
             Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("address"));
             list = new List<string> { "n", "g", "r", "m" };
             Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("anagram"));
+            list = new List<string> { "a" };
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("bba"));
+        }
+
+        [Test]
+        public void TestUpperLowerChars()
+        {
+            var list = new List<string> { "l", "m" };
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("AlMa"));
         }
     }
 }

@@ -25,15 +25,15 @@ namespace UniqueChars
 
             for (int i = 0; i < word.Length; i++)
             {
-                list.Add(word.ToCharArray()[i].ToString());
+                list.Add(word.ToCharArray()[i].ToString().ToLower());
             }
 
-            for (int i = 0; i < list.Count;)
+            for (int i = 0; i < list.Count - 1;)
             {
                 int count = list.Count;
-                for (int j = i; j < list.Count; j++)
+                for (int j = i + 1; j < list.Count; j++)
                 {
-                    if (list[i] == list[j] && j != i)
+                    if (list[i] == list[j])
                     {
                         list.RemoveAt(j);
                     }
@@ -47,7 +47,6 @@ namespace UniqueChars
                     i++;
                 }
             }
-
             return list;
         }
     }
