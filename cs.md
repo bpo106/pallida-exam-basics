@@ -32,8 +32,8 @@ The application is accepted if:
 
 ###  What is the difference between a function and a method? [2p]
 #### Your answer:
-[add your answer here]
+Functions are originally independent from classes, while methods are associated with a class.
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-[add your answer here]
+A constructor is a special default method of a specific class, always without a return value. We can set the variables to a defalt value or make some other methods while defining the class at another place.
