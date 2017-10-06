@@ -45,8 +45,15 @@ namespace TakeMeToThe
 
         public void Raise(int amount)
         {
-            CANDY.price += amount;
-            LOLLIPOP.price += amount;
+            if (amount > CANDY.price || amount > LOLLIPOP.price)
+            {
+                Console.WriteLine("Dude...I think it isn't the best idea you've ever had.");
+            }
+            else
+            {
+                CANDY.price += amount;
+                LOLLIPOP.price += amount;
+            }
         }
         
         public void Sell (CandyShop product, int amount)
