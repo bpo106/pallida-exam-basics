@@ -12,38 +12,65 @@ namespace FavouriteAnimals
             string input = Console.ReadLine();
             if (input.Length > 0)
             {
-                Save(input);
+                Save(input, Read());
             }
             else
             {
-                Print();
+                Print(Read());
             }
             Console.ReadLine();
         }
 
-        public static void Save (string input)
+        public static List<string> Read ()
+        {
+            List<string> animalList = new List<string>();
+            using (StreamReader fileIn = new StreamReader("favourites.txt"))
+            {
+                string line;
+                while ((line = fileIn.ReadLine()) != null)
+                {
+                    animalList.Add(line);
+                }
+            }
+            return animalList;
+        }
+
+        public static void Save (string input, List<string> animalList)
         {
             List<string> list = input.Split(' ').ToList();
             using (StreamWriter fileOut = File.AppendText("favourites.txt"))
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    fileOut.WriteLine(list[i]);
+                    bool isAlreadyIn = false;
+                    for (int j = 0; j < animalList.Count; j++)
+                    {
+                        if (list[i] == animalList[j])
+                        {
+                            isAlreadyIn = true;
+                            Console.WriteLine("{0} is already in the list", list[i]);
+                        }
+                    }
+                    if (!isAlreadyIn)
+                    {
+                        fileOut.WriteLine(list[i]);
+                    }
                 }
             }
         }
 
-        public static void Print ()
+        public static void Print (List<string> animalList)
         {
-            using (StreamReader fileIn = new StreamReader("favourites.txt"))
+            Console.Write("C# FavouriteAnimals");
+            for (int i = 0; i < animalList.Count; i++)
             {
-                string line;
-                Console.Write("C# FavouriteAnimals");
-                while ((line = fileIn.ReadLine()) != null)
+                if (animalList[i] != "")
                 {
-                    Console.Write(" " + line);
+                    Console.Write(" {0}", animalList[i]);
                 }
             }
+            
+             
         }
     }
 }
