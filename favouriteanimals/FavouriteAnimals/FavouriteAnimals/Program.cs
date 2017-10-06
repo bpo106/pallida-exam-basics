@@ -42,17 +42,13 @@ namespace FavouriteAnimals
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    bool isAlreadyIn = false;
-                    for (int j = 0; j < animalList.Count; j++)
+
+                    if (animalList.Contains(list[i]))
                     {
-                        if (list[i] == animalList[j])
-                        {
-                            isAlreadyIn = true;
-                            Console.WriteLine("{0} is already in the list", list[i]);
-                        }
+                        Console.WriteLine("{0} is already in the list", list[i]);
                     }
-                    if (!isAlreadyIn)
-                    {
+                    else
+                    {                        
                         fileOut.WriteLine(list[i]);
                     }
                 }
