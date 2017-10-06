@@ -44,5 +44,12 @@ namespace UniqueCharsTest
             var list = new List<string> { "l", "m" };
             Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("AlMa"));
         }
+
+        [Test]
+        public void TestMoreThanOneWord()
+        {
+            var list = new List<string> { "v", "n", "p", "u", "s", "t", "w", "o" };
+            Assert.AreEqual(list, UniqueCharacter.UniqueCharacters("eleven plus two"));
+        }
     }
 }

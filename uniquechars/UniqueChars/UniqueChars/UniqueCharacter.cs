@@ -27,6 +27,10 @@ namespace UniqueChars
             {
                 list.Add(word.ToCharArray()[i].ToString().ToLower());
             }
+            while (list.Contains(" "))
+            {
+                list.Remove(" ");
+            }
 
             for (int i = 0; i < list.Count - 1;)
             {
