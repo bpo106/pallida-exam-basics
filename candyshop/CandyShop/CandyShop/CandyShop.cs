@@ -10,7 +10,7 @@ namespace TakeMeToThe
     {
         protected int sugar;
         protected int amount;
-        protected int price = 1;
+        protected int price;
         protected int income = 0;
 
         public static Candy CANDY = new Candy();
@@ -27,8 +27,15 @@ namespace TakeMeToThe
 
         public virtual void CreateSweets (CandyShop product)
         {
-            product.amount++;
-            sugar -= product.sugar;
+            if (sugar < product.sugar)
+            {
+                Console.WriteLine("Not enough sugar to produce this many products");
+            }
+            else
+            {
+                product.amount++;
+                sugar -= product.sugar;
+            }
         }
 
         public void PrintInfo ()
@@ -44,14 +51,28 @@ namespace TakeMeToThe
         
         public void Sell (CandyShop product, int amount)
         {
-            product.amount -= amount;
-            income += product.amount * product.price;
+            if (product.amount < amount)
+            {
+                Console.WriteLine("Not enough products stored");
+            }
+            else
+            {
+                product.amount -= amount;
+                income += product.amount * product.price;
+            }
         }
 
         public void BuySugar (int amount)
         {
-            income -= (int)(amount * 0.1);
-            sugar += amount;
+            if (income < (int)(amount * 0.1))
+            {
+                Console.WriteLine("Not enough money to buy this much sugar");
+            }
+            else
+            {
+                income -= (int)(amount * 0.1);
+                sugar += amount;
+            }
         }
     }
 }

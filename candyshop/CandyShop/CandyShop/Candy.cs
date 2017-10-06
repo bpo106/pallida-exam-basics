@@ -11,7 +11,7 @@ namespace TakeMeToThe
         public Candy()
         {
             sugar = 10;
-            price *= 20;
+            price = 20;
         }
     }
 }

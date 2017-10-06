@@ -11,7 +11,7 @@ namespace TakeMeToThe
         public Lollipop()
         {
             sugar = 5;
-            price *= 10;
+            price = 10;
         }
     }
 }
